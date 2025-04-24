@@ -13,9 +13,9 @@ export class TaskRoutes extends CommonRoutesConfig implements configureRoutes {
         const taskController = new TaskController();
 
         this.app.post('/tasks', [taskMidlware.validateData, taskController.createTask])
-        this.app.get('/tasks/:status', [taskMidlware.validateData, taskController.getTask])
-        this.app.get('/tasks', [taskMidlware.validateData, taskController.getTask])
-        this.app.get('/tasks/:status/count', [taskMidlware.validateData, taskController.getTaskCount])
-        this.app.get('/tasks/:sort/sort', [taskMidlware.validateData, taskController.getTask])
+        this.app.get('/tasks/:status', [ taskController.getTask])
+        this.app.get('/tasks', [ taskController.getTask])
+        this.app.get('/tasks/:status/count', [ taskController.getTaskCount])
+        this.app.get('/tasks/:sort/sort', [ taskController.getTask])
     }
 }
